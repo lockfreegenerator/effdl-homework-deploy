@@ -46,9 +46,9 @@ def predict():
     with torch.no_grad():
         predictions = model([image_tensor])
     
-    print(predictions)
+    #print(predictions)
 
-    labels = predictions[1][0]['labels'].tolist()
+    labels = predictions[0]['labels'].tolist()
     objects = [categories[label] for label in labels]
     
     return jsonify({"objects": objects})
