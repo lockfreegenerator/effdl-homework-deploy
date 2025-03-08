@@ -13,7 +13,7 @@ import io
 class InferenceServicer(inference_pb2_grpc.InstanceDetectorServicer):
     def __init__(self):
         weights = FasterRCNN_ResNet50_FPN_V2_Weights.DEFAULT
-        self.model = fasterrcnn_resnet50_fpn_v2(weights=weights, box_score_thresh=0.9)
+        self.model = fasterrcnn_resnet50_fpn_v2(weights=weights, box_score_thresh=0.75)
         self.model.eval()
         self.categories = weights.meta["categories"]
 
